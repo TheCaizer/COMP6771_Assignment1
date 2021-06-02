@@ -99,8 +99,7 @@ you can conclude that no ladder exists.
 
 A few of these tasks deserve a bit more explanation. For example, you’ll need to find all the words
 that differ by one letter from a given word. You might reach for a raw loop to change each letter to
-all the other letters in the alphabet; or you can explore the libraries that the project uses to
-solve the problem in a more descriptive manner (note 2). Repeat this for each letter position in the
+all the other letters in the alphabet. Repeat this for each letter position in the
 word and you will have discovered all the words that are one letter away.
 
 Another, more subtle issue, is the restriction that you shouldn’t reuse words that have been
