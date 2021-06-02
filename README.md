@@ -174,7 +174,7 @@ coordinate the activities of your objects to do the search.
 If you haven't done so already, clone this repository.
 
 ```sh
-$ git clone gitlab@gitlab.cse.unsw.edu.au:COMP6771/21T2/students/z5555555
+$ git clone gitlab@gitlab.cse.unsw.edu.au:COMP6771/21T2/students/z5555555/ass1
 ```
 
 (Note: Replace z5555555 with your zid)
