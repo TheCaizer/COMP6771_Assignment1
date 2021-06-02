@@ -17,7 +17,7 @@ namespace word_ladder {
 	}
 
 	std::unordered_set<std::string> lexicon;
-	std::copy(std::istream_iterator<std::string>(), {}, std::inserter(lexicon, lexicon.end()));
+	std::copy(std::istream_iterator<std::string>(in), {}, std::inserter(lexicon, lexicon.end()));
 	if (in.bad()) {
 		std::runtime_error("I/O error while reading");
 	}
