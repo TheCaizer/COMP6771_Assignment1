@@ -11,5 +11,5 @@ cxx_library(
 cxx_executable(
 	TARGET debugging_main
 	FILENAME debugging_main.cpp
-	LINK word_ladder
+	LINK word_ladder lexicon
 )

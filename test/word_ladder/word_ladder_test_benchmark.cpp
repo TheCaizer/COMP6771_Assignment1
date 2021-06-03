@@ -19,7 +19,6 @@
 #include <vector>
 
 #include "catch2/catch.hpp"
-#include "comp6771/testing/range/contain.hpp"
 
 
 TEST_CASE("atlases -> cabaret") {
