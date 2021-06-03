@@ -27,5 +27,5 @@ TEST_CASE("at -> it") {
 	CHECK(std::size(ladders) == 1);
 	CHECK(std::is_sorted(ladders.begin(), ladders.end()));
 
-	CHECK(std::any_of(ladders.begin(), ladders.end(), testing::contain({"at", "it"})));
+	CHECK(std::count(ladders.begin(), ladders.end(), std::vector<std::string>{"at", "it"}) == 1);
 }
