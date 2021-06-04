@@ -5,6 +5,7 @@
 ## Change Log
 
 * 02/06: Couple of quick tweaks from initial feedback, see git commits
+* 04/06: Removing a confusing work to play example
 
 ## Overview
 
@@ -60,8 +61,6 @@ returns valid word ladders. By using a [breadth-first search][bfs], you’re gua
 shortest such sequence. Here are some more examples.
 
 ```cpp
-::word_ladder::generate("work", "play", english_words);
-// returns {{"work", "fork", "form", "foam", "flam", "flay", "play"}}
 ::word_ladder::generate("awake", "sleep", english_words);
 // returns {
 //   {"awake","aware","sware","share","sharn","shawn","shewn","sheen","sheep","sleep"}
