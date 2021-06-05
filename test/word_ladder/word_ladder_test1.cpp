@@ -21,7 +21,7 @@
 #include "catch2/catch.hpp"
 
 TEST_CASE("at -> it") {
-	auto const english_lexicon = word_ladder::read_lexicon("./english.txt");
+	auto const english_lexicon = word_ladder::read_lexicon("./test/word_ladder/english.txt");
 	auto const ladders = word_ladder::generate("at", "it", english_lexicon);
 
 	CHECK(std::size(ladders) == 1);
