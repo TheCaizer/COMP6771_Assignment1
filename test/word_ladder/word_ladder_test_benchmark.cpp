@@ -22,7 +22,7 @@
 
 
 TEST_CASE("atlases -> cabaret") {
-	auto const english_lexicon = ::word_ladder::read_lexicon("./english.txt");
+	auto const english_lexicon = ::word_ladder::read_lexicon("./test/word_ladder/english.txt");
 	auto const ladders = ::word_ladder::generate("atlases", "cabaret", english_lexicon);
 
 	CHECK(std::size(ladders) != 0);
