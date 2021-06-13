@@ -6,6 +6,7 @@
 
 * 02/06: Couple of quick tweaks from initial feedback, see git commits
 * 04/06: Removing a confusing work to play example
+* 13/06: Added FAQ at bottom to answer question about lexicon file path
 
 ## Overview
 
@@ -376,6 +377,20 @@ This late penalty has been amended from the original specification, and you shou
 
 * (note 1) You’ll need to consult the lexicon to see if the transformation is a valid word in either
   case.
+
+## FAQ
+
+### Lexicon File Path
+
+<b>Q. Should be lexicon file path be `./test/word_ladder/english.txt` or `./english.txt`?</b>
+
+Providing paths to files can be a bit tricky in programs. Generally speaking when you provide a relative path to a program the path is relative to the directlyctory that your script/executable was invoked from (basically the directory of your shell), and NOT of the directory of the source code that is actaully opening the file.
+
+The default repository sets the lexicon file path to `./test/word_ladder/english.txt`. This will work when you invoke an executable directly such as `./build/test/word_ladder/word_ladder_test` after building it.
+
+However, if you want to use the `Run Tests` command (which runs all the tests) that we also demonstrated in `tut01`, then you might want to update the file path to `./english.txt` in your test files.
+
+Choose whichever method you prefer - we will ensure that EITHER file path will validly work with our automarkers.
 
 [us]: https://en.cppreference.com/w/cpp/container/unordered_set
 [Algorithms]: https://en.cppreference.com/w/cpp/algorithm
