@@ -1,7 +1,6 @@
 [
     {
         "name": "COMP6771",
-        "toolchainFile": "/import/kamen/1/cs6771/vcpkg/scripts/buildsystems/vcpkg.cmake",
         "preferredGenerator": {
             "name": "Ninja"
         },

@@ -1,10 +1,11 @@
 // Copyright (c) Christopher Di Bella.
 // SPDX-License-Identifier: Apache-2.0 WITH LLVM-exception
 //
-#include "comp6771/word_ladder.hpp"
+#include <comp6771/word_ladder.hpp>
 
 #include <unordered_set>
 #include <fstream>
+#include <iterator>
 #include <stdexcept>
 #include <string>
 
@@ -17,7 +18,10 @@ namespace word_ladder {
 		}
 
 		std::unordered_set<std::string> lexicon;
-		std::copy(std::istream_iterator<std::string>(in), {}, std::inserter(lexicon, lexicon.end()));
+		std::copy(std::istream_iterator<std::string>(in),
+				  std::istream_iterator<std::string>(),
+				  std::inserter(lexicon, lexicon.end())
+	    );
 		if (in.bad()) {
 			std::runtime_error("I/O error while reading");
 		}

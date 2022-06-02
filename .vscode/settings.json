@@ -115,7 +115,7 @@
 		"**/CVS": true,
 		"**/.DS_Store": true,
 		"**/vcpkg": true,
-		"**/build*": true
+		"**/build*": false
 	},
 	"files.restoreUndoStack": true,
 	"files.trimTrailingWhitespace": true,

@@ -3,7 +3,7 @@
 #
 cmake_minimum_required(VERSION 3.13)
 
-project("COMP6771_LAB" CXX)
+project("COMP6771_ass1" CXX)
 add_library(${PROJECT_NAME} INTERFACE)
 
 set(CMAKE_CXX_STANDARD 20)
@@ -18,8 +18,6 @@ enable_testing()
 include(CTest)
 
 include(add-targets)
-
-find_package(Catch2 CONFIG REQUIRED)
 
 include_directories(include)
 
