@@ -8,6 +8,9 @@ namespace word_ladder {
     	std::string const& to,
     	std::unordered_set<std::string> const& lexicon
     ) -> std::vector<std::vector<std::string>> {
+        (void) from;
+        (void) to;
+        (void) lexicon;
         return {};
     }
 

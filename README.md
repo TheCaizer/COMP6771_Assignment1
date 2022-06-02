@@ -4,13 +4,9 @@
 
 ## Change Log
 
-* 02/06: Couple of quick tweaks from initial feedback, see git commits
-* 04/06: Removing a confusing work to play example
-* 13/06: Added FAQ at bottom to answer question about lexicon file path
-
 ## Overview
 
-In Week 2 we are learning about C++ libraries, and this assignment is your chance to practice those
+In Week 2 we are learning about C++ libraries, and this assignment is your chance to practise those
 skills.
 
 Now that you’ve been introduced to the C++ standard library, it’s time to put that knowledge to use.
@@ -173,7 +169,7 @@ coordinate the activities of your objects to do the search.
 If you haven't done so already, clone this repository.
 
 ```sh
-$ git clone gitlab@gitlab.cse.unsw.edu.au:COMP6771/21T2/students/z5555555/ass1
+$ git clone gitlab@gitlab.cse.unsw.edu.au:COMP6771/22T2/students/z5555555/ass1.git
 ```
 
 (Note: Replace z5555555 with your zid)
@@ -352,7 +348,7 @@ the assignment submissions but it will remain broadly similar to the description
 
 ## Submission
 
-This assignment is due *Friday 18th of June, 19:59:59*.
+This assignment is due *Friday 17th of June, 19:59:59*.
 Submit the assignment using the following comand while logged into the CSE machines:
 
 Our systems automatically record the most recent push you make to your master branch. Therefore,
@@ -364,12 +360,12 @@ from a fresh clone of your repository. Failure to ensure this may result in a lo
 
 ## Late Submission Policy
 
-If your assignment is submitted after this date, each hour it is late reduces the maximum mark it can achieve by 2%.
+If your assignment is submitted after this date, each hour it is late reduces the maximum mark it can achieve by 0.2% up to 120 hours late, after which it will receive 0.
 
-For example if an assignment you submitted with a raw awarded mark of 85% was submitted 5 hours late, the late submission would have no effect (as maximum mark would be 90%).
+For example if an assignment you submitted with a raw awarded mark of 90% was submitted 5 hours late, the late submission would have no effect (as maximum mark would be 99%).
 
-If the same assignment was submitted 10 hours late it would be awarded
-80%, the maximum mark it can achieve at that time.
+If the same assignment was submitted 72 hours late it would be awarded
+85%, the maximum mark it can achieve at that time.
 
 This late penalty has been amended from the original specification, and you should not assume it will be the same for future assignments.
 
@@ -384,7 +380,7 @@ This late penalty has been amended from the original specification, and you shou
 
 <b>Q. Should be lexicon file path be `./test/word_ladder/english.txt` or `./english.txt`?</b>
 
-Providing paths to files can be a bit tricky in programs. Generally speaking when you provide a relative path to a program the path is relative to the directlyctory that your script/executable was invoked from (basically the directory of your shell), and NOT of the directory of the source code that is actaully opening the file.
+Providing paths to files can be a bit tricky in programs. Generally speaking when you provide a relative path to a program the path is relative to the directlyctory that your script/executable was invoked from (basically the directory of your shell), and NOT of the directory of the source code that is actually opening the file.
 
 The default repository sets the lexicon file path to `./test/word_ladder/english.txt`. This will work when you invoke an executable directly such as `./build/test/word_ladder/word_ladder_test` after building it.
 
