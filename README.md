@@ -1,8 +1,10 @@
-# Assignment 1 - Word Ladder
+#Assignment 1 - Word Ladder
 
 **Please `git pull` frequently to get the latest changes.**
 
 ## Change Log
+
+- (2022-06-02): Initial Release
 
 ## Overview
 
@@ -349,7 +351,6 @@ the assignment submissions but it will remain broadly similar to the description
 ## Submission
 
 This assignment is due *Friday 17th of June, 19:59:59*.
-Submit the assignment using the following comand while logged into the CSE machines:
 
 Our systems automatically record the most recent push you make to your master branch. Therefore,
 to "submit" your code you simply need to make sure that your master branch (on the gitlab website)

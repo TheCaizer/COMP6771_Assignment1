@@ -11,7 +11,6 @@
 
 namespace word_ladder {
 	auto read_lexicon(std::string const& path) -> std::unordered_set<std::string> {
-
 		auto in = std::ifstream(path.data());
 		if (not in) {
 			throw std::runtime_error("Unable to open file.");
@@ -19,9 +18,8 @@ namespace word_ladder {
 
 		std::unordered_set<std::string> lexicon;
 		std::copy(std::istream_iterator<std::string>(in),
-				  std::istream_iterator<std::string>(),
-				  std::inserter(lexicon, lexicon.end())
-	    );
+		          std::istream_iterator<std::string>(),
+		          std::inserter(lexicon, lexicon.end()));
 		if (in.bad()) {
 			std::runtime_error("I/O error while reading");
 		}

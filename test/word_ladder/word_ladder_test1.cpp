@@ -13,12 +13,12 @@
 // See the License for the specific language governing permissions and
 // limitations under the License.
 //
-#include "comp6771/word_ladder.hpp"
+#include <comp6771/word_ladder.hpp>
 
 #include <string>
 #include <vector>
 
-#include "catch2/catch.hpp"
+#include <catch2/catch.hpp>
 
 TEST_CASE("at -> it") {
 	auto const english_lexicon = word_ladder::read_lexicon("./test/word_ladder/english.txt");
