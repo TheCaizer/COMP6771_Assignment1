@@ -7,6 +7,14 @@
 #include <unordered_set>
 #include <string>
 #include <vector>
+#include <algorithm>
+#include <queue>
+#include <iostream>
+
+// Function to get a unordered_set of words with a certain length in the lexicon
+auto getSmallLexicon(int const& length,
+                     std::unordered_set<std::string> const& lexicon)
+    ->std::unordered_set<std::string>;
 
 namespace word_ladder {
 	[[nodiscard]] auto read_lexicon(std::string const& path) -> std::unordered_set<std::string>;

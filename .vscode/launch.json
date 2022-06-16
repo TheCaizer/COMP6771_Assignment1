@@ -11,6 +11,7 @@
          "program": "${command:cmake.launchTargetPath}",
          "args": [],
          "cwd": "${workspaceFolder}/build/test/word_ladder",
+         //"cwd": "${workspaceFolder}",
          "env": {
             "ASAN_OPTIONS": "detect_leaks=0"
          }
