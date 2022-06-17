@@ -29,6 +29,10 @@ auto getSmallLexicon(int const& length,
     ->std::unordered_set<std::string>{
     // return value
     std::unordered_set<std::string> ret;
+
+    if(length <= 0){
+        return ret;
+    }
     // loop through the lexicon and any word with the same size as length is added to set
     for(auto const& i : lexicon){
         if(i.size() == length){

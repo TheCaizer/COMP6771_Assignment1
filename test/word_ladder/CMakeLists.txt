@@ -11,3 +11,9 @@ cxx_test(
    FILENAME word_ladder_test_benchmark.cpp
    LINK word_ladder lexicon test_main
 )
+
+cxx_test(
+   TARGET word_ladder_test_smallLexicon
+   FILENAME word_ladder_test_smallLexicon.cpp
+   LINK word_ladder lexicon test_main
+)

@@ -20,6 +20,15 @@
 
 #include <catch2/catch.hpp>
 
+/* This testing file is used in order to test the main generate function making sure that it works
+for both the lexicon that it is given as well as custom smaller sets to ensure that edge cases are
+accounted for. Checking for edges case with under the assumption that some casese such as:
+You can assume that the start word and end word have the same length (i.e. number of characters).
+You can assume that both the start and the end word are in the lexicon.
+You can assume the start word and the end word will not be the same word
+*/
+
+
 // Test case given by the school
 TEST_CASE("at -> it") {
 	auto const english_lexicon = word_ladder::read_lexicon("english.txt");
@@ -30,6 +39,7 @@ TEST_CASE("at -> it") {
 
 	CHECK(std::count(ladders.begin(), ladders.end(), std::vector<std::string>{"at", "it"}) == 1);
 }
+
 // test a bigger word by writing my own set and have a solution the function should generate
 TEST_CASE("weeknights->weekenders"){
     std::unordered_set<std::string> lexicon = {"a", "b", "weeknights", "weekenders", "weekeights",
@@ -45,6 +55,16 @@ TEST_CASE("weeknights->weekenders"){
 
 	CHECK(std::count(ladders.begin(), ladders.end(), solution) == 1);
 }
+
+// Test case for when there shouldn't be a solution
+TEST_CASE("abc -> def"){
+    std::unordered_set<std::string> lexicon = {"a", "b", "abc", "def", "abf", "zed", "lop", "top"};
+    auto const ladders = word_ladder::generate("adc", "def", lexicon);
+
+	CHECK(std::size(ladders) == 0);
+	CHECK(std::is_sorted(ladders.begin(), ladders.end()));
+}
+
 // Checking the check for empty string, makes sure that for every ladder it returns 1 object
 // then check that it is sorted as well as the empty vector is returned
 // Then check that for if from and to is empty or both is empty same results.
@@ -66,17 +86,6 @@ TEST_CASE("empty string"){
 	CHECK(std::is_sorted(ladders3.begin(), ladders3.end()));
 }
 
-// Testing function getSmallLexicon to make sure it is getting all the right words in the larger set
-TEST_CASE("testing getSmallLexicon"){
-    std::unordered_set<std::string> lexicon = {"a", "aaa", "aa", "ab", "ac", "abc", "b"};
-    std::string from = "ac";
-    auto length = from.size();
-    CHECK(length == 2);
-	auto const ladders = getSmallLexicon(length, lexicon);
-	CHECK(ladders.size() == 3);
-	std::unordered_set<std::string> lexiconTest ={"aa", "ab", "ac"};
-	CHECK(ladders == lexiconTest);
-}
 // testing the comapreWord function for smalle words
 TEST_CASE("testing comapreWord small"){
     std::string a = "a";
