@@ -21,8 +21,9 @@
 #include <catch2/catch.hpp>
 
 /*
-This file is used to test the compareWord function to ensure that it works and returns the right
+This file is used to test the smallLexicon function to ensure that it works and returns the right
 result to ensure it works by itself and outside of the assignment scope as well as any edge cases.
+I want to test edge cases that are uncommon to make sure that it works fine.
 */
 
 // Testing function getSmallLexicon to make sure it is getting all the right words in the larger set

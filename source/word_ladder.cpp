@@ -79,26 +79,34 @@ auto BFS_Set(std::string const& from, std::unordered_set<std::string> lexicon)
 	// while the queue is not empty continue looking using BFS
 	while (not(que.empty())) {
 		// set of string to erase from the lexicon every loop
-		std::unordered_set<std::string> toErase;
-		// the front string of the queue to start looking
-		std::string frontString = que.front();
-		// remove the front string from the queue
-		que.pop();
-		// loop through the lexicon
-		for (auto const& lexi : lexicon) {
-			// compare the front string to words in lexicon, if there are only 1 letter difference
-			if (compareWord(frontString, lexi)) {
-				// the mapping of the front word will contain a vector where we add words
-				// with 1 letter difference
-				ret[frontString].push_back(lexi);
-				// push the word with 1 letter difference to the queue as it can be a path
-				// to destination word
-				que.push(lexi);
-				// emplace the lexicon word into the set to erase later
-				toErase.emplace(lexi);
-				// Was going to erase here but changing the lexicon mid loop is a bad idea
-			}
-		}
+		std::unordered_set<std::string> toErase{};
+		// Loop through the queue
+		for(auto x = que.size(); x > 0; x--){
+    		// the front string of the queue to start looking
+    		std::string frontString = que.front();
+    		// remove the front string from the queue
+    		que.pop();
+    		// loop through the lexicon
+    		for (auto const& lexi : lexicon) {
+    			// compare the front string to words in lexicon, if there are only 1
+    			// letter difference
+    			if (compareWord(frontString, lexi)) {
+    				// the mapping of the front word will contain a vector where we add words
+    				// with 1 letter difference
+    				ret[frontString].push_back(lexi);
+    				// ensure that for every loop if we have this in the to erase means we
+    				// have visited
+    				if(not(toErase.contains(lexi))){
+        				// push the word with 1 letter difference to the queue as it can be a path
+        				// to destination word
+        				que.push(lexi);
+        				// emplace the lexicon word into the set to erase later
+        				toErase.emplace(lexi);
+    				    // Was going to erase here but changing the lexicon mid loop is a bad idea
+                    }
+    			}
+    		}
+        }
 		// loop through the set to erase from lexicon so there are no duplicates or circular ladder
 		for (auto const& era : toErase) {
 			lexicon.erase(era);
@@ -130,13 +138,13 @@ auto BFS_Map(std::string const& from,
 		// the previous element that was being looked at using BFS in the ladder
 		auto const& predecessor = ladder.back();
 		// if the predecessor is our destination word then we can add it to the return value as 1
-		// complete ladder
+		// complete ladder and then you can skip tthe next step
 		if (predecessor == to) {
 			ret.push_back(ladder);
 		}
 		// Since map has only unique keys a count() would just be used to check if predecessor
 		// is in the mapping itself
-		if (mapping.count(predecessor)) {
+		else if (mapping.count(predecessor)) {
 			// since the predecessor is in the mapping we can use a for loop to go through
 			// the string vector that it is mapped to
 			for (auto const& word : mapping[predecessor]) {

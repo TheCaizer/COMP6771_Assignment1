@@ -52,8 +52,6 @@ TEST_CASE("weeknights->weekenders") {
 	                                           "ab",
 	                                           "ad",
 	                                           "aasdasdasd",
-	                                           "weednights",
-	                                           "weeknnghts",
 	                                           "weekenghts",
 	                                           "weekendhts",
 	                                           "weekendets"};
@@ -97,4 +95,41 @@ TEST_CASE("empty string") {
 	auto const ladders3 = word_ladder::generate(empty1, a, lexicon);
 	CHECK(std::size(ladders3) == 0);
 	CHECK(std::is_sorted(ladders3.begin(), ladders3.end()));
+}
+// Test case for when there should be no solution with lexicon
+TEST_CASE("No solution 2") {
+	auto const english_lexicon = word_ladder::read_lexicon("english.txt");
+	auto const ladders = word_ladder::generate("airplane", "tricycle", english_lexicon);
+
+	CHECK(std::size(ladders) == 0);
+	CHECK(std::is_sorted(ladders.begin(), ladders.end()));
+}
+// Test the case with multiple solutions with answers sorted given in the specs
+TEST_CASE("awake->sleep") {
+	auto const english_lexicon = word_ladder::read_lexicon("english.txt");
+	auto const ladders = word_ladder::generate("awake", "sleep", english_lexicon);
+	std::vector<std::string> a = {"awake",
+	                              "aware",
+	                              "sware",
+	                              "share",
+	                              "sharn",
+	                              "shawn",
+	                              "shewn",
+	                              "sheen",
+	                              "sheep",
+	                              "sleep"};
+	std::vector<std::string> b = {"awake",
+	                              "aware",
+	                              "sware",
+	                              "share",
+	                              "shire",
+	                              "shirr",
+	                              "shier",
+	                              "sheer",
+	                              "sheep",
+	                              "sleep"};
+	CHECK(std::size(ladders) == 2);
+	CHECK(std::is_sorted(ladders.begin(), ladders.end()));
+    CHECK(ladders[0] == a);
+    CHECK(ladders[1] == b);
 }
