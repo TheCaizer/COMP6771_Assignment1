@@ -80,33 +80,33 @@ auto BFS_Set(std::string const& from, std::unordered_set<std::string> lexicon)
 	while (not(que.empty())) {
 		// set of string to erase from the lexicon every loop
 		std::unordered_set<std::string> toErase{};
-		// Loop through the queue
-		for(auto x = que.size(); x > 0; x--){
-    		// the front string of the queue to start looking
-    		std::string frontString = que.front();
-    		// remove the front string from the queue
-    		que.pop();
-    		// loop through the lexicon
-    		for (auto const& lexi : lexicon) {
-    			// compare the front string to words in lexicon, if there are only 1
-    			// letter difference
-    			if (compareWord(frontString, lexi)) {
-    				// the mapping of the front word will contain a vector where we add words
-    				// with 1 letter difference
-    				ret[frontString].push_back(lexi);
-    				// ensure that for every loop if we have this in the to erase means we
-    				// have visited
-    				if(not(toErase.contains(lexi))){
-        				// push the word with 1 letter difference to the queue as it can be a path
-        				// to destination word
-        				que.push(lexi);
-        				// emplace the lexicon word into the set to erase later
-        				toErase.emplace(lexi);
-    				    // Was going to erase here but changing the lexicon mid loop is a bad idea
-                    }
-    			}
-    		}
-        }
+		// Loop through the queue need this for multiple solutions
+		for (auto x = que.size(); x > 0; x--) {
+			// the front string of the queue to start looking
+			std::string frontString = que.front();
+			// remove the front string from the queue
+			que.pop();
+			// loop through the lexicon
+			for (auto const& lexi : lexicon) {
+				// compare the front string to words in lexicon, if there are only 1
+				// letter difference
+				if (compareWord(frontString, lexi)) {
+					// the mapping of the front word will contain a vector where we add words
+					// with 1 letter difference
+					ret[frontString].push_back(lexi);
+					// ensure that for every loop if we have this in the to erase means we
+					// have visited
+					if (not(toErase.contains(lexi))) {
+						// push the word with 1 letter difference to the queue as it can be a path
+						// to destination word
+						que.push(lexi);
+						// emplace the lexicon word into the set to erase later
+						toErase.emplace(lexi);
+						// Was going to erase here but changing the lexicon mid loop is a bad idea
+					}
+				}
+			}
+		}
 		// loop through the set to erase from lexicon so there are no duplicates or circular ladder
 		for (auto const& era : toErase) {
 			lexicon.erase(era);

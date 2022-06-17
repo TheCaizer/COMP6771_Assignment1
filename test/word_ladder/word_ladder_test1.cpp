@@ -108,28 +108,12 @@ TEST_CASE("No solution 2") {
 TEST_CASE("awake->sleep") {
 	auto const english_lexicon = word_ladder::read_lexicon("english.txt");
 	auto const ladders = word_ladder::generate("awake", "sleep", english_lexicon);
-	std::vector<std::string> a = {"awake",
-	                              "aware",
-	                              "sware",
-	                              "share",
-	                              "sharn",
-	                              "shawn",
-	                              "shewn",
-	                              "sheen",
-	                              "sheep",
-	                              "sleep"};
-	std::vector<std::string> b = {"awake",
-	                              "aware",
-	                              "sware",
-	                              "share",
-	                              "shire",
-	                              "shirr",
-	                              "shier",
-	                              "sheer",
-	                              "sheep",
-	                              "sleep"};
+	std::vector<std::string> a =
+	   {"awake", "aware", "sware", "share", "sharn", "shawn", "shewn", "sheen", "sheep", "sleep"};
+	std::vector<std::string> b =
+	   {"awake", "aware", "sware", "share", "shire", "shirr", "shier", "sheer", "sheep", "sleep"};
 	CHECK(std::size(ladders) == 2);
 	CHECK(std::is_sorted(ladders.begin(), ladders.end()));
-    CHECK(ladders[0] == a);
-    CHECK(ladders[1] == b);
+	CHECK(ladders[0] == a);
+	CHECK(ladders[1] == b);
 }
