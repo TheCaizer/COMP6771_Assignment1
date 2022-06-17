@@ -19,6 +19,7 @@
 #include <vector>
 
 #include <catch2/catch.hpp>
+
 // Test case given by the school
 TEST_CASE("at -> it") {
 	auto const english_lexicon = word_ladder::read_lexicon("english.txt");
@@ -28,6 +29,21 @@ TEST_CASE("at -> it") {
 	CHECK(std::is_sorted(ladders.begin(), ladders.end()));
 
 	CHECK(std::count(ladders.begin(), ladders.end(), std::vector<std::string>{"at", "it"}) == 1);
+}
+// test a bigger word by writing my own set and have a solution the function should generate
+TEST_CASE("weeknights->weekenders"){
+    std::unordered_set<std::string> lexicon = {"a", "b", "weeknights", "weekenders", "weekeights",
+    "ac","ab","ad","aasdasdasd","weednights","weeknnghts","weekenghts","weekendhts","weekendets"};
+
+	auto const ladders = word_ladder::generate("weeknights", "weekenders", lexicon);
+
+	std::vector<std::string> solution = {"weeknights", "weekeights", "weekenghts","weekendhts",
+	"weekendets", "weekenders"};
+
+	CHECK(std::size(ladders) == 1);
+	CHECK(std::is_sorted(ladders.begin(), ladders.end()));
+
+	CHECK(std::count(ladders.begin(), ladders.end(), solution) == 1);
 }
 // Checking the check for empty string, makes sure that for every ladder it returns 1 object
 // then check that it is sorted as well as the empty vector is returned
