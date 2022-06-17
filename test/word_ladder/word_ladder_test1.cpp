@@ -20,9 +20,11 @@
 
 #include <catch2/catch.hpp>
 
-/* This testing file is used in order to test the main generate function making sure that it works
+/* This testing file is used in order to test the main function making sure that it works
 for both the lexicon that it is given as well as custom smaller sets to ensure that edge cases are
-accounted for. Checking for edges case with under the assumption that some casese such as:
+accounted for. Also making sure that it is returning the right solutions that are in the specs.
+Should account for a variety of situation and outside of the assignment should work.
+Checking for edges case under the assumption such as:
 You can assume that the start word and end word have the same length (i.e. number of characters).
 You can assume that both the start and the end word are in the lexicon.
 You can assume the start word and the end word will not be the same word
@@ -84,16 +86,4 @@ TEST_CASE("empty string"){
     auto const ladders3 = word_ladder::generate(empty1, a, lexicon);
     CHECK(std::size(ladders3) == 0);
 	CHECK(std::is_sorted(ladders3.begin(), ladders3.end()));
-}
-
-// testing the comapreWord function for smalle words
-TEST_CASE("testing comapreWord small"){
-    std::string a = "a";
-    std::string b = "b";
-    CHECK(compareWord(a,b));
-
-    // THIS CASE SHOULD NOT HAPPEN AS WE ONLY HAVE WORDS WITH SAME LENGTH FROM PREVIOUS FUNCTIONS
-    a = "AB";
-    b = "A";
-    CHECK(!(compareWord(a,b)));
 }
