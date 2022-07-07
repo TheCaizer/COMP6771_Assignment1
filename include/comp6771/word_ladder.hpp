@@ -4,6 +4,7 @@
 #ifndef COMP6771_WORD_LADDER_HPP
 #define COMP6771_WORD_LADDER_HPP
 
+#include <unordered_map>
 #include <unordered_set>
 #include <algorithm>
 #include <iostream>
